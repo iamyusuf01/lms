@@ -12,7 +12,7 @@ const MyCourses = () => {
     try {
       const token = await getToken();
       const { data } = await axios.get(
-        backendUrl + '/api/educator/courses',
+        backendUrl + '/api/educator/get-courses',
         {
           headers: {
             Authorization: `Bearer ${token}`,

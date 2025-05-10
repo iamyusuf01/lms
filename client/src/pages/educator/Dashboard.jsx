@@ -33,6 +33,8 @@ const Dashboard = () => {
       fetchDashboardData();
     }
   }, [isEducator]);
+
+  
   return dashboardData ? (
     <div className="min-h-screen flex flex-col items-start justify-between gap-8 md:p-8 md:pb-0 p-4 pb-0 pt-8">
       <div className="flex flex-wrap gap-5 items-center">
