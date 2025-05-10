@@ -122,14 +122,14 @@ const AddCourse = () => {
       formData.append("image", image);
 
       const token = await getToken();
-      const { data } = await axios.post(backendUrl + '/api/educator/add-course', {headers: {
-        Authorization: `Bearer ${token}`
+      const { data } = await axios.post(backendUrl + '/api/educator/add-course', formData, {headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'multipart/form-data',
       }}) 
-      // console.log(data);
 
       if(data.success){
         toast.success(data.message)
-        setCourseTitle("");
+        setCourseTitle('');
         setCoursePrice(0);
         setDiscount(0);
         setImage(null);
