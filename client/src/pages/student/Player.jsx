@@ -100,7 +100,7 @@ const Player = () => {
   }
 
   useEffect(() => {
-    getCourseData();
+    getCourseProgress
   }, [])
 
   return courseData ? (
@@ -150,7 +150,7 @@ const Player = () => {
                         <li key={i} className="flex items-start gap-2 py-1">
                           <img
                             src={
-                              progressData && progressData.lectureCompleted.include(lecture.lectureId) ? assets.blue_tick_icon : assets.play_icon
+                              progressData && progressData.lectureCompleted.includes(lecture.lectureId) ? assets.blue_tick_icon : assets.play_icon
                             }
                             alt="play icon"
                             className="w-4 h-4 mt-1"
@@ -192,7 +192,7 @@ const Player = () => {
           </div>
           <div className="flex items-center gap-2 py-3 mt-10">
             <h1 className="text-xl font-bold">Rate this Course:</h1>
-            <Rating initialRating={initialRating} onRate={handleRate} />
+            <Rating initialRating={0} onRate={handleRate} />
           </div>
         </div>
         {/* {Right column} */}
@@ -209,7 +209,7 @@ const Player = () => {
                   {playerData.lectureTitle}{" "}
                 </p>
                 <button onClick={() => markLectureAsCompleted(playerData.lectureId) } className="text-blue-600">
-                  {progressData && progressData.lectureCompleted.include(playerData.lectureId)  ? "Completed" : "Mark Completed"}
+                  {progressData && progressData.lectureCompleted.includes(playerData.lectureId)  ? "Completed" : "Mark Completed"}
                 </button>
               </div>
             </div>
