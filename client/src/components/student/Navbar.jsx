@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, } from "react-router-dom";
 import { useClerk, UserButton, useUser } from "@clerk/clerk-react";
 import { assets } from "../../assets/assets";
 import { AppContext } from "../../context/AppContext";
@@ -8,6 +8,7 @@ import { toast } from "react-toastify";
 
 const Navbar = () => {
   const { navigate, isEducator, backendUrl, setEducator, getToken } = useContext(AppContext);
+
   const isCourseListPage = location.pathname.includes("/course-list");
 
   const { openSignIn } = useClerk();

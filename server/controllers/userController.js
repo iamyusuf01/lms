@@ -51,6 +51,7 @@ export const purchaseCourse = async (req, res) => {
         }
 
         const newPurchase = await Purchase.create(purchaseData)
+        
 
         //Strip Gate Way Initialization
         const stripeInstance = new Stripe(process.env.STRIPE_SECRET_KEY)

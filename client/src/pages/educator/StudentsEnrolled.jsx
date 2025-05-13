@@ -12,7 +12,8 @@ const StudentsEnrolled = () => {
   const fetchEnrolledStudents = async () => {
     try {
       const token = await getToken();
-      const { data } = await axios.get(backendUrl + '/api/educator/enrolled-students', {headers : {Authorization: `Bearer ${token}`}})
+      const { data } = await axios.get(backendUrl + '/api/educator/enrolled-students', 
+        {headers : {Authorization: `Bearer ${token}`}})
 
       if(data.success){
         setEnrolledStudents(data.enrolledStudents.reverse());
@@ -29,6 +30,7 @@ const StudentsEnrolled = () => {
       fetchEnrolledStudents();
     }
   }, [isEducator]);
+  
   return enrolledStudents ? (
     <div className="min-h-screen flex flex-col items-start justify-between md:p-8 md:pb-0 p-4 pt-8 pb-0">
       <div
