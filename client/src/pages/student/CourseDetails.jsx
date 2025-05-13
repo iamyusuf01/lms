@@ -49,6 +49,7 @@ const CourseDetails = () => {
   const enrolledCourses = async () => {
     try {
        if(userData){
+        
         return toast.warn('Login to Enroll')
        }
        if(isAlreadyEnrolled){
@@ -241,7 +242,7 @@ const CourseDetails = () => {
               iframeClassName="w-full aspect-video"
             />
           ) : (
-            <img src={assets.course_1_thumbnail} alt="thumbnail" />
+            <img src={courseData.courseThumbnail} alt="thumbnail" />
           )}
           <div className="p-5">
             <div className="flex items-center gap-2">
